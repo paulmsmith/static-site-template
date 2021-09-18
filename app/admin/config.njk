@@ -1,0 +1,31 @@
+---
+permalink: "{{ page.filePathStem }}.yml"
+---
+# Docs: https://www.netlifycms.org/docs/configuration-options/
+backend:
+  name: github
+  branch: main
+  repo: digital-land/content-site # cms repo
+  base_url: https://dl-cms-oauth-service.herokuapp.com # OAuth server
+# when true will assume needs netlify-cms-proxy-server running: npx netlify-cms-proxy-server
+local_backend: {{ "true" if env == "local" else "false" }}
+logo_url: /assets/images/dl-logo.svg
+publish_mode: editorial_workflow
+public_folder: /assets/images/uploads
+media_folder: app/images/uploads
+display_url: https://badcreditnewcar.co.uk
+site_url: {{ "http://localhost:8080" if env == "local" else "https://badcreditnewcar.co.uk" }}
+collections:
+  - name: "cars"
+    label: "Car pages"
+    label_singular: "Car page"
+    folder: "app/content/showroom"
+    create: true
+    slug: {% raw %}"{{slug}}"{% endraw %}
+    preview_path: {% raw %}"showroom/{{slug}}"{% endraw %}
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Hidden", name: "hidden", widget: "boolean", default: false, hint: "Hides this content from the site. Defaults to false." }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Description", name: "description", widget: "text", hint: "A summary of this guidance" }
+      - { label: "Body", name: "body", widget: "markdown" }
