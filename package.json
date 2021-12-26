@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "engines": {
-    "node": "^14.0.0"
+    "node": "^16.0.0"
   },
   "description": "The static site generator template repo",
   "keywords": [
@@ -22,9 +22,9 @@
     "build:styles": "node-sass app/_stylesheets -o public/stylesheets --include-path app",
     "build": "npm-run-all --serial prebuild build:*",
     "prewatch": "npm run build",
-    "watch:files": "eleventy --serve",
+    "watch:files": "eleventy --serve --port=8000",
     "watch:javascripts": "rollup --config etc/rollup.config.js --watch",
-    "watch:styles": "node-sass app/_stylesheets -o public/stylesheets --watch",
+    "watch:styles": "node-sass app/_stylesheets -o public/stylesheets --include-path app --watch",
     "watch": "npm-run-all --parallel watch:*",
     "dev": "npm run watch",
     "prestart": "npm run build",
@@ -32,13 +32,14 @@
     "test": "standard"
   },
   "dependencies": {
-    "@11ty/eleventy": "^0.12.1",
+    "@11ty/eleventy": "^1.0.0-beta.9",
     "@11ty/eleventy-navigation": "^0.3.2",
     "@11ty/eleventy-plugin-syntaxhighlight": "^3.1.0",
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-node-resolve": "^13.0.0",
     "accessible-autocomplete": "^2.0.3",
     "http-server": "^14.0.0",
+    "javascript-stringify": "^2.1.0",
     "lodash": "^4.17.21",
     "luxon": "^2.0.1",
     "markdown-it-abbr": "^1.0.4",

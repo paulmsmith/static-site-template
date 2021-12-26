@@ -1,15 +1,4 @@
 module.exports = function (eleventyConfig) {
-  // Browser Sync
-  eleventyConfig.setBrowserSyncConfig({
-    rewriteRules: [{
-      match: /\/image\/(\d+)(x)?(\d+)?/g,
-      replace: '/images'
-    }],
-    serveStatic: ['public'],
-    serveStaticOptions: {
-      extensions: ['html']
-    }
-  })
 
   // Template libraries
   eleventyConfig.setLibrary('njk', require('./lib/libraries/nunjucks'))
@@ -44,8 +33,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('./app/admin/**/*.!(njk)') // exclude nunjucks templates
   eleventyConfig.addPassthroughCopy({ './app/images': './assets/images' })
 
-  // Enable data deep merge
-  eleventyConfig.setDataDeepMerge(true)
+  eleventyConfig.addWatchTarget("./app/_stylesheets/");
+  eleventyConfig.addWatchTarget("./app/_components/");
+  eleventyConfig.addWatchTarget("./app/_javascripts/");
 
   // Config
   return {
