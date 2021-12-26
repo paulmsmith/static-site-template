@@ -31,11 +31,12 @@ module.exports = function (eleventyConfig) {
 
   // Passthrough
   eleventyConfig.addPassthroughCopy('./app/admin/**/*.!(njk)') // exclude nunjucks templates
-  eleventyConfig.addPassthroughCopy({ './app/images': './assets/images' })
+  eleventyConfig.addPassthroughCopy({ './app/assets/images': './assets/images' })
 
-  eleventyConfig.addWatchTarget("./app/_stylesheets/");
-  eleventyConfig.addWatchTarget("./app/_components/");
-  eleventyConfig.addWatchTarget("./app/_javascripts/");
+  eleventyConfig.addWatchTarget("./app/_assets/images/");
+  eleventyConfig.addWatchTarget("./app/_assets/stylesheets/");
+  eleventyConfig.addWatchTarget("./app/_assets/javascripts/");
+  eleventyConfig.addWatchTarget("./app/_components/");;
 
   // Config
   return {

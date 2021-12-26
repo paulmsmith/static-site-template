@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ title }}</title>
   {% block head %}
-    <link href="/stylesheets/application.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="/assets/stylesheets/application.css" media="all" rel="stylesheet" type="text/css" />
     <meta property="og:title" content="{{ title }}">
     {% if description %}<meta property="og:description" name="description" content="{{ description | markdown("inline") | striptags(true) }}">{% endif %}
     <meta property="og:image" content="/images/opengraph-image.png">
