@@ -1,5 +1,4 @@
 module.exports = function (eleventyConfig) {
-
   // Template libraries
   eleventyConfig.setLibrary('njk', require('./lib/libraries/nunjucks'))
   eleventyConfig.setLibrary('md', require('./lib/libraries/markdown'))
@@ -10,13 +9,10 @@ module.exports = function (eleventyConfig) {
 
   // Filters
   eleventyConfig.addFilter('date', require('./lib/filters/date'))
-  eleventyConfig.addFilter('fixed', require('./lib/filters/fixed'))
   eleventyConfig.addFilter('includes', require('./lib/filters/includes'))
   eleventyConfig.addFilter('markdown', require('./lib/filters/markdown'))
-  eleventyConfig.addFilter('pretty', require('./lib/filters/pretty'))
   eleventyConfig.addFilter('slug', require('./lib/filters/slug'))
   eleventyConfig.addFilter('sort', require('./lib/filters/sort'))
-  eleventyConfig.addFilter('tokenize', require('./lib/filters/tokenize'))
   eleventyConfig.addFilter('widont', require('./lib/filters/widont'))
   eleventyConfig.addFilter('console', require('./lib/filters/console'))
   eleventyConfig.addFilter('find', require('./lib/filters/find'))
@@ -31,12 +27,14 @@ module.exports = function (eleventyConfig) {
 
   // Passthrough
   eleventyConfig.addPassthroughCopy('./app/admin/**/*.!(njk)') // exclude nunjucks templates
-  eleventyConfig.addPassthroughCopy({ './app/assets/images': './assets/images' })
+  eleventyConfig.addPassthroughCopy({
+    './app/assets/images': './assets/images'
+  })
 
-  eleventyConfig.addWatchTarget("./app/_assets/images/");
-  eleventyConfig.addWatchTarget("./app/_assets/stylesheets/");
-  eleventyConfig.addWatchTarget("./app/_assets/javascripts/");
-  eleventyConfig.addWatchTarget("./app/_components/");;
+  eleventyConfig.addWatchTarget('./app/_assets/images/')
+  eleventyConfig.addWatchTarget('./app/_assets/stylesheets/')
+  eleventyConfig.addWatchTarget('./app/_assets/javascripts/')
+  eleventyConfig.addWatchTarget('./app/_components/')
 
   // Config
   return {
