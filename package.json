@@ -36,7 +36,7 @@
     "@11ty/eleventy-navigation": "^0.3.2",
     "@11ty/eleventy-plugin-syntaxhighlight": "^3.1.0",
     "@rollup/plugin-commonjs": "^21.0.1",
-    "@rollup/plugin-node-resolve": "^13.0.0",
+    "@rollup/plugin-node-resolve": "^14.1.0",
     "accessible-autocomplete": "^2.0.3",
     "http-server": "^14.0.0",
     "javascript-stringify": "^2.1.0",
